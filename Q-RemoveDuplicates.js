@@ -6,19 +6,6 @@
 
 let a = [2, 7, 11, 11, 15];
 
-// ==============Solution 2 (n2)Using sorting     =======================
-let temp;
-let c = [];
-let sorted = a.sort();
-let len = sorted.length;
-for (let i = 0; i <= len; i++) {
-  if (a[i] !== temp) {
-    c.push(a[i]);
-    temp = a[i];
-  }
-}
-
-console.log(c);
 // ================================
 
 // ==============Solution 1 (n2)     =======================
@@ -32,3 +19,17 @@ for (let i = 0; i <= a.length; i++) {
 
 console.log(b);
 // ================================
+
+// ==============Solution 2 (n2)Using sorting     =======================
+let temp;
+let c = [];
+let sorted = a.sort();
+let len = sorted.length;
+for (let i = 0; i <= len; i++) {
+  if (a[i] !== temp) {
+    c.push(a[i]);
+    temp = a[i];
+  }
+}
+
+console.log(c);
