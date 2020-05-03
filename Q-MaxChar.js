@@ -5,27 +5,31 @@
  * ('abcdefgss') =  ss
  */
 
-const maxChars = str => {
-  const map = {}
-  let max = 0
-  let maxChar = ''
+const maxChars = (str) => {
+  const map = {};
+  let max = 0;
+  let maxChar = "";
 
-  for (let char of str) {
+  let newStr = str.replace(/[^\w]/g, "");
+
+  for (let char of newStr) {
     if (map[char]) {
-      map[char]++
+      map[char]++;
     } else {
-      map[char] = 1
+      map[char] = 1;
     }
   }
+
+  return map;
 
   for (chars in map) {
     if (map[chars] > max) {
-      max = map[chars]
-      maxChar = chars
+      max = map[chars];
+      maxChar = chars;
     }
   }
 
-  return `Max Character is ${maxChar} with ${max} occurances`
-}
+  return `Max Character is ${maxChar} with ${max} occurances`;
+};
 
-console.log(maxChars('RRiiisshav'))
+console.log(maxChars("RRiiisshav Sinha"));
