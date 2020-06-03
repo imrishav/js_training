@@ -20,8 +20,6 @@ const maxChars = (str) => {
     }
   }
 
-  return map;
-
   for (chars in map) {
     if (map[chars] > max) {
       max = map[chars];
