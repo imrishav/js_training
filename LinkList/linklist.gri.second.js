@@ -77,13 +77,33 @@ class LinkList {
 
     let currentHead = new Node(value);
   }
+
+  // =============================GET`
+  get(index) {
+    if (index < 0 || index >= this.length) return null;
+    let counter = 0; //2
+    let current = this.head;
+    while (counter !== index) {
+      current = current.next;
+      counter++;
+    }
+    return current;
+  }
+
+  // ============================Set
+  set(index, value) {
+    let node = this.get(index);
+    node.value = value;
+    return node;
+  }
 }
 
 let list = new LinkList();
-list.push(2);
-list.push(3);
-list.push(4);
-list.shift();
+list.push("Hello");
+list.push("There");
+list.push("Goodbye..");
+// list.shift();
 // list.pop(  );
 
-console.log(list.shift());
+console.log(list.set(1, "rishav"));
+console.log(list.traverse());
