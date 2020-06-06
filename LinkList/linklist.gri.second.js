@@ -96,14 +96,48 @@ class LinkList {
     node.value = value;
     return node;
   }
+
+  ///Insert
+
+  insert(index, value) {
+    if (index < 0 || index > this.length) return false;
+    if (index === this.length) return !!this.push(value);
+    if (index === 0) return !!this.unshift(value);
+
+    let newNode = new Node(value);
+    let prev = this.get(index - 1);
+    let tempNode = prev.next;
+    prev.next = newNode;
+    newNode.next = tempNode;
+    this.length++;
+    return true;
+  }
+
+  //remove====
+  remove(index) {
+    if (index < 0 || index > this.length) return undefined;
+    if (index === this.length - 1) return !!this.pop();
+    if (index === 0) return !!this.shift();
+    let prev = this.get(index - 1);
+    let nextNode = this.get(index + 1);
+    prev.next = nextNode;
+    this.length--;
+    return true;
+  }
+
+  //Reverse
+
+  reverse() {}
 }
 
 let list = new LinkList();
 list.push("Hello");
 list.push("There");
-list.push("Goodbye..");
+list.push("insert..");
+list.push("bye..");
 // list.shift();
 // list.pop(  );
-
-console.log(list.set(1, "rishav"));
+console.log(list.traverse());
+console.log("=============");
+console.log(list.remove(0));
 console.log(list.traverse());
